@@ -62,7 +62,7 @@ products.forEach((product) => {
                     </div>
 
                     <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${
-                      product.id
+                      product.id //Add atributte for more info about ptoduct(in case unique ID)
                     }">Add to Cart</button>
                   </div>
                 `;
@@ -74,16 +74,18 @@ document.querySelector(".js-products-grid").innerHTML = productsHTML; // concate
 
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
-    const productId = button.dataset.productId;
+    const productId = button.dataset.productId; // Save to product Id in variable
 
-    let matchingItem;
+    let matchingItem; // Variable for save corresponding producta with unique Id
 
+    // Product matching check
     cart.forEach((item) => {
       if (productId === item.productId) {
         matchingItem = item;
       }
     });
 
+    // if the product is already in the cart calculete quantity else add product in cart
     if (matchingItem) {
       matchingItem.quantity += 1;
     } else {
@@ -93,6 +95,15 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
       });
     }
 
-    console.log(cart);
+    // Calculate total quantity products in cart
+
+    let cartQuantity = 0;
+
+    cart.forEach((item) => {
+      cartQuantity += item.quantity;
+    });
+
+    // Add carQuantity on the page
+    document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
   });
 });
