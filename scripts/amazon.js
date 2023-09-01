@@ -1,50 +1,13 @@
-//Products in Array, Information about product in object
-const products = [
-  {
-    //First product in object
-    image: "images/products/athletic-cotton-socks-6-pairs.jpg", // Image first prodoct
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs", // Name first product
-    rating: {
-      // In object rating becouse these two values are related to each other.
-      stars: 4.5, // Count stars,
-      count: 87, // Count number of voters
-    },
-    priceCents: 1090, // Price in cents 1$ = 100 cents, becouse js has problems with float numbers or decimal number
-    //END First product in object
-  },
-  // Second product in object
-  {
-    image: "images/products/intermediate-composite-basketball.jpg", // Image second prodoct
-    name: "Intermediate Size Basketball", // Name second product
-    rating: {
-      // In object rating becouse these two values are related to each other.
-      stars: 4, // Count stars,
-      count: 127, // Count number of voters
-    },
-
-    priceCents: 2095, // Price in cents 1$ = 100 cents, becouse js has problems with float numbers or decimal number
-    // END Second product in object
-  },
-  //Third product in object
-  {
-    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
-    rating: {
-      stars: 4.5,
-      count: 56,
-    },
-    priceCents: 799,
-  },
-  // END Third product in object
-];
-
-//We want all of our objects to have the same structure so that our code can handle each product the same.
+//We want to take all of our objects to have the same structure so that our code can handle each product the same.  from 'products.js'
 
 // Generation HTML code through method forEach for array.
 
+// Variable for one string all code
 let productsHTML = "";
 
+// Loop through the array and store each product in the array as a variable "product"
 products.forEach((product) => {
+  // Add from object property and corresponding value
   productsHTML += `
                   <div class="product-container">
                     <div class="product-image-container">
@@ -62,6 +25,7 @@ products.forEach((product) => {
                       <img
                         class="product-rating-stars"
                         src="images/ratings/rating-${
+                          // In source name image for stars rating-40 , in object 4 * 10 = 40;
                           product.rating.stars * 10
                         }.png"
                       />
@@ -70,9 +34,10 @@ products.forEach((product) => {
                       }</div>
                     </div>
 
-                    <div class="product-price">$${(
-                      product.priceCents / 100
-                    ).toFixed(2)}</div>
+                    <div class="product-price">$${
+                      // convert from cents to dollars 1$ = 100cents, after the decimal point 2 digits
+                      (product.priceCents / 100).toFixed(2)
+                    }</div> 
 
                     <div class="product-quantity-container">
                       <select>
@@ -101,4 +66,4 @@ products.forEach((product) => {
                 `;
 });
 
-document.querySelector(".js-products-grid").innerHTML = productsHTML;
+document.querySelector(".js-products-grid").innerHTML = productsHTML; // concatenate code with one string
