@@ -1,3 +1,6 @@
+// Import variable from cart.js
+import { cart } from "../data/cart.js";
+
 //We want to take all of our objects to have the same structure so that our code can handle each product the same.  from 'products.js'
 
 // Generation HTML code through method forEach for array.
