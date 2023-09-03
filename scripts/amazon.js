@@ -1,5 +1,6 @@
 // Import variable from cart.js
 import { cart } from "../data/cart.js";
+import { products } from "../data/products.js";
 
 //We want to take all of our objects to have the same structure so that our code can handle each product the same.  from 'products.js'
 

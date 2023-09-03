@@ -1,5 +1,6 @@
 //Products in Array, Information about product in object
-const products = [
+// Export products
+export const products = [
   {
     //First product in object
 
