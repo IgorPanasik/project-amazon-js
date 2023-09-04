@@ -1,7 +1,7 @@
 // Import variables from cart.js and products.js
 import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
-
+import { formatCurrency } from "./utils/money.js";
 //We want to take all of our objects to have the same structure so that our code can handle each product the same.  from 'products.js'
 
 // Generation HTML code through method forEach for array.
@@ -40,7 +40,7 @@ products.forEach((product) => {
 
                     <div class="product-price">$${
                       // convert from cents to dollars 1$ = 100cents, after the decimal point 2 digits
-                      (product.priceCents / 100).toFixed(2)
+                      formatCurrency(product.priceCents)
                     }</div> 
 
                     <div class="product-quantity-container">
